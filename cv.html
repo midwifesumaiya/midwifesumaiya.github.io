@@ -37,8 +37,9 @@
       <h1>Sumaiya Akter,<br><em>Registered Midwife.</em></h1>
       <p class="cv-hero-copy">A considered overview of my education, clinical training and commitment to respectful maternal and newborn care.</p>
       <div class="cv-hero-actions">
-        <a class="cv-action-light" href="/cv.pdf" download="Sumaiya_Akter_Professional_CV.pdf"><span aria-hidden="true">↓</span> Download CV · PDF</a>
+        <button class="cv-action-light" type="button" data-download-pdf><span aria-hidden="true">↓</span> Download professional CV · PDF</button>
         <button class="cv-action-outline" type="button" data-print>Print this page</button>
+        <p class="cv-download-status" id="cv-download-status" role="status" aria-live="polite"></p>
       </div>
     </div>
     <div class="cv-hero-mark" aria-hidden="true">S</div>
@@ -116,6 +117,9 @@
   <section class="section no-print" style="background:#eaf2f2"><div class="container contact-strip"><div><p class="cv-label">Professional enquiries</p><h2 class="section-title">Let's connect professionally.</h2><p class="section-summary">For job opportunities and professional enquiries, please get in touch by email.</p></div><a class="button button-primary" href="mailto:sumaiya.mustakim13@gmail.com">Email Sumaiya <span aria-hidden="true">→</span></a></div></section>
 </main>
 <footer class="site-footer no-print"><div class="container footer-top"><a class="brand brand-footer" href="/"><span class="brand-mark" aria-hidden="true">S</span><span>Sumaiya<span class="brand-sub">Registered Midwife · Bangladesh</span></span></a><nav class="footer-nav" aria-label="Footer navigation"><a href="/about.html">About</a><a href="/portfolio.html">Portfolio</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav></div><div class="container footer-bottom"><span>© <span data-current-year>2026</span> Sumaiya. All rights reserved.</span><a href="#main">Back to top ↑</a></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.js" defer></script>
+<script src="/assets/js/cv-download.js" defer></script>
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
