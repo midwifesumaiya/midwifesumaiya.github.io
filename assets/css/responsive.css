@@ -4,3 +4,25 @@
 @media(max-width:500px){.container{width:calc(100% - 32px)}.brand{font-size:13px}.brand-mark{width:36px;height:36px}.hero h1{font-size:clamp(43px,12.5vw,58px)}.button-row{gap:9px}.button{min-height:45px;padding:11px 12px;font-size:11px}.hero-bottom span:last-child{max-width:45%;text-align:right}.card-grid.three,.card-grid.two,.credential-grid,.portfolio-detail-grid{grid-template-columns:1fr}.service-card,.portfolio-card{padding:21px}.line-icon{margin:19px 0}.section-title{font-size:35px}.intro-aside{font-size:19px}.quote-band{padding:57px 0}.quote-inner blockquote{font-size:30px}.contact-panel{padding:24px}.footer-top{flex-direction:column}.footer-nav{max-width:none}.footer-bottom{align-items:flex-start}.page-title{font-size:43px}.privacy-panel{grid-template-columns:1fr}.cv-sheet{padding:22px 18px}.cv-header{flex-direction:column;gap:15px}.cv-contact{align-items:flex-start;text-align:left}.cv-columns{grid-template-columns:1fr;gap:0}.cv-footer-note{flex-direction:column;gap:5px}.print-button{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{ @page{size:A4;margin:14mm}body{background:white!important;color:#3D2932!important;font-size:10pt}.no-print,.site-header,.site-footer,.page-hero,.contact-strip{display:none!important}.cv-section{padding:0!important}.cv-sheet{max-width:none;padding:0;border:0;box-shadow:none}.cv-header{padding-bottom:12pt}.cv-name{font-size:28pt}.cv-summary{padding:12pt 0}.cv-columns{gap:22pt;padding-top:14pt}.cv-block{margin-bottom:15pt;break-inside:avoid}.cv-summary,.cv-entry,.cv-block{break-inside:avoid}.cv-footer-note{margin-top:8pt}.cv-contact{font-size:8pt}.cv-role{font-size:9pt}.cv-summary p,.cv-entry p,.cv-bullets,.cv-block>p{font-size:8.5pt}.tag-list li{font-size:8pt;padding:3pt 5pt}.cv-disclaimer{font-size:7.5pt}}
+
+
+/* Polished interaction layer: restrained motion, clear focus and scroll feedback. */
+html{scroll-behavior:smooth}
+:where(a,button,[tabindex]):focus-visible{outline:3px solid #9B4D68;outline-offset:4px;border-radius:3px}
+::selection{background:#F4C2C2;color:#3D2932}
+.site-header{position:sticky;top:0;z-index:20;background:rgb(255 250 251 / 94%);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgb(87 45 62 / 5%)}
+.scroll-progress{position:absolute;right:0;bottom:-1px;left:0;height:2px;overflow:hidden;pointer-events:none}
+.scroll-progress span{display:block;width:100%;height:100%;background:var(--deep);transform:scaleX(0);transform-origin:left center;will-change:transform}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.card-grid .reveal:nth-child(2){transition-delay:70ms}
+.card-grid .reveal:nth-child(3){transition-delay:120ms}
+.card-grid .reveal:nth-child(4){transition-delay:50ms}
+.card-grid .reveal:nth-child(5){transition-delay:100ms}
+.card-grid .reveal:nth-child(6){transition-delay:150ms}
+.service-card,.portfolio-card,.portfolio-detail-card,.credential-card,.button{transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+.button{transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+.button:hover{transform:translateY(-2px)}
+a{text-underline-offset:3px}
+@media(max-width:760px){.site-header{backdrop-filter:none;-webkit-backdrop-filter:none}.scroll-progress{height:3px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.button:hover{transform:none}}
