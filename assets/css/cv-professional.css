@@ -58,3 +58,21 @@
 
 /* Direct-download control polish and accessible status. */
 .cv-action-light{font-family:inherit;cursor:pointer}.cv-action-light:disabled{opacity:.65;cursor:wait}.cv-download-status{flex-basis:100%;min-height:1em;margin:0;color:#d9e4e8;font-size:11px}
+
+/* Final refinement: clearer focus states, restrained interaction, and reliable print layout. */
+.cv-action-light,.cv-action-outline{font-family:inherit;cursor:pointer;transition:background-color .18s ease,border-color .18s ease,transform .18s ease}
+.cv-action-light:hover{background:#e4eeee;border-color:#ffffff}
+.cv-action-outline:hover{background:rgb(255 255 255 / 10%);border-color:#d7e6e7}
+.cv-action-light:focus-visible,.cv-action-outline:focus-visible,.cv-page a:focus-visible{outline:3px solid #77b8b4;outline-offset:3px}
+.cv-panel,.cv-sidebar-panel,.cv-overview{border-radius:3px}
+.cv-overview-main>p:last-child{max-width:72ch}
+.cv-fact a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+.cv-skill-list li{break-inside:avoid}
+@media(prefers-reduced-motion:reduce){.cv-action-light,.cv-action-outline{transition:none}}
+@media print{
+  @page{size:A4;margin:12mm}
+  .cv-overview,.cv-timeline-item,.cv-sidebar-panel,.cv-skill-list li{break-inside:avoid-page;page-break-inside:avoid}
+  .cv-panel-title{break-after:avoid-page;page-break-after:avoid}
+  .cv-layout{align-items:start}
+  a{color:inherit;text-decoration:none}
+}
