@@ -15,55 +15,42 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Validate CV download and PDF integrity
+      - name: Validate CV content and direct PDF generation
         run: |
           python - <<'PY'
           from pathlib import Path
-
+          import re
           root = Path(".")
           cv = (root / "cv.html").read_text(encoding="utf-8")
-          pdf = (root / "cv.pdf").read_bytes()
-          required_cv_markers = [
-              'href="/cv.pdf"',
-              'download="Sumaiya_Akter_Professional_CV.pdf"',
-              'data-print',
-              'sumaiya.mustakim13@gmail.com',
-              'Clinical experience &amp; training',
-              'Education',
-              'Clinical skills &amp; knowledge areas',
-          ]
-          missing = [marker for marker in required_cv_markers if marker not in cv]
+          generator = (root / "assets/js/cv-download.js").read_text(encoding="utf-8")
+          markers = ['data-download-pdf','data-print','id="cv-download-status"','sumaiya.mustakim13@gmail.com','Clinical experience &amp; training','Education','Clinical skills & knowledge areas','Professional registration','Academic reference','pdfmake/0.2.10/pdfmake.min.js','pdfmake/0.2.10/vfs_fonts.js','/assets/js/cv-download.js']
+          missing = [x for x in markers if x not in cv]
           if missing:
-              raise SystemExit("CV page is missing required content: " + ", ".join(missing))
-          if not pdf.startswith(b"%PDF-"):
-              raise SystemExit("cv.pdf does not start with a valid PDF signature")
-          if b"%%EOF" not in pdf[-1024:]:
-              raise SystemExit("cv.pdf is missing its PDF end marker")
-          if b"startxref" not in pdf[-1024:]:
-              raise SystemExit("cv.pdf is missing its cross-reference pointer")
-          if len(pdf) < 1000:
-              raise SystemExit("cv.pdf is unexpectedly small")
-          for path in ["index.html", "about.html", "portfolio.html", "learning.html", "development.html", "cv.html"]:
+              raise SystemExit("CV page missing required content/wiring: " + ", ".join(missing))
+          if 'href="/cv.pdf"' in cv or 'download="Sumaiya_Akter_Professional_CV.pdf"' in cv:
+              raise SystemExit("CV must be generated from cv.html, not linked to a separate PDF.")
+          js_markers = ['window.pdfMake.createPdf(build()).download("Sumaiya_Akter_Professional_CV.pdf")','panel("experience-heading")','panel("education-heading")','panel("skills-heading")','Language proficiency','Career direction','Academic reference']
+          missing = [x for x in js_markers if x not in generator]
+          if missing:
+              raise SystemExit("PDF generator missing required features: " + ", ".join(missing))
+          for path in ["index.html","about.html","portfolio.html","learning.html","development.html","cv.html"]:
               if not (root / path).is_file():
-                  raise SystemExit(f"Missing expected public page: {path}")
-          print(f"CV HTML checks passed; PDF signature, EOF, and xref markers passed ({len(pdf)} bytes).")
+                  raise SystemExit(f"Missing public page: {path}")
+          print("CV content and direct PDF generation checks passed.")
           PY
       - name: Check local navigation targets
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
-          pages = [Path(p) for p in ["index.html", "about.html", "portfolio.html", "learning.html", "development.html", "cv.html"]]
+          pages = [Path(p) for p in ["index.html","about.html","portfolio.html","learning.html","development.html","cv.html"]]
           missing = set()
           for page in pages:
               html = page.read_text(encoding="utf-8")
               for target in re.findall(r'(?:href|src)="(/[^"#?]*)"', html):
-                  if target == "/":
-                      continue
-                  local = Path(target.lstrip("/"))
-                  if not local.exists():
+                  if target != "/" and not Path(target.lstrip("/")).exists():
                       missing.add(f"{page}: {target}")
           if missing:
-              raise SystemExit("Missing local assets/targets:\n" + "\n".join(sorted(missing)))
+              raise SystemExit("Missing local assets/targets:\\n" + "\\n".join(sorted(missing)))
           print("Local navigation and asset targets passed.")
           PY
