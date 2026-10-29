@@ -20,7 +20,7 @@ const fact = name => facts.find(x=>x[0].toLowerCase()===name.toLowerCase())?.[1]
 const skills = [...(panel("skills-heading")?.querySelectorAll("li")||[])].map(txt);
 const content = [
 {table:{widths:["*","auto"],body:[[{stack:[
-{text:get(".cv-hero h1").replace(/\s+/g," "),style:"name"},
+{text:get(".cv-hero h1").replace(/\s+/g," ").replace(/,?\s*Registered Midwife\.?$/i,"").trim(),style:"name"},
 {text:"REGISTERED MIDWIFE",style:"role",margin:[0,5,0,7]},
 {text:[fact("Email"),fact("Preferred location"),fact("Professional status")].filter(Boolean).join("   •   "),style:"contact"}
 ],fillColor:"#183247",margin:[17,16,12,16]},{text:"S",fontSize:38,bold:true,color:"#b9d7d7",alignment:"center",fillColor:"#183247",margin:[8,16,16,16]}]]},layout:{hLineWidth:()=>0,vLineWidth:()=>0,paddingLeft:()=>0,paddingRight:()=>0,paddingTop:()=>0,paddingBottom:()=>0},margin:[0,0,0,12]},
