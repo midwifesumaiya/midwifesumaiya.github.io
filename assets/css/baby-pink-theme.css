@@ -1,0 +1,70 @@
+/* Unified Baby Pink theme for every page in Sumaiya's portfolio. */
+:root{
+  color-scheme:light;
+  --ink:#4B303B;
+  --muted:#806873;
+  --deep:#78374F;
+  --deep-hover:#612A40;
+  --sage:#F4C2C2;
+  --sage-strong:#E8AAB8;
+  --paper:#FFFAFB;
+  --white:#FFFFFF;
+  --line:#EEDDE3;
+  --clay:#9A4D68;
+  --focus:#873D59;
+  --surface-soft:#FFF0F4;
+  --surface-pink:#FCEBF0;
+  --shadow:0 20px 55px rgb(120 55 79 / 9%);
+  --brand-pink:#F4C2C2;
+  --brand-rose:#78374F;
+}
+::selection{background:#F4C2C2;color:#4B303B}
+a:focus-visible,button:focus-visible,input:focus-visible{outline-color:#9A4D68}
+.site-header{border-bottom-color:#EEDDE3;background:rgb(255 250 251 / 95%)}
+.primary-nav a,.footer-nav a{color:#765A65}
+.primary-nav a:hover,.primary-nav a.active,.footer-nav a:hover,.text-link,.breadcrumbs a{color:#78374F}
+.primary-nav .nav-contact{border-color:#E6C3CF;color:#78374F}
+.brand-mark{border-color:#E8AAB8;background:#F4C2C2;color:#78374F}
+.hero{background:radial-gradient(ellipse at 82% 32%,#FCEBF0 0,transparent 34%),linear-gradient(112deg,#FFFAFB 40%,#FFF0F4 100%)}
+.hero:before{border-color:rgb(120 55 79 / 9%)}
+.eyebrow,.hero h1 em,.page-title em,.intro-aside{color:#78374F}
+.eyebrow-line,.art-leaf{background-color:#9A4D68;color:#9A4D68}
+.button-primary,.filter-chip:hover,.filter-chip.is-active,.detail-illustration span{background:#78374F;border-color:#78374F;color:#fff}
+.button-primary:hover{background:#612A40}
+.button-secondary{border-color:#E6C3CF;color:#4B303B}
+.button-secondary:hover{border-color:#9A4D68}
+.button-light{color:#78374F}
+.art-arch{background:linear-gradient(155deg,#F5DDE5,#EFC9D6)}
+.art-inner{background:linear-gradient(160deg,rgb(255 255 255 / 45%),rgb(252 235 240 / 65%))}
+.art-initial{color:#78374F}
+.art-stamp{border-color:#E6BDCA;color:#78374F}
+.section-sage,.section[style*="background:#eaf2f2"],.section[style*="background: #eaf2f2"]{background:#FFF0F4!important}
+.service-card,.portfolio-card,.portfolio-detail-card,.credential-card,.learning-card,.development-card{border-color:#EEDDE3}
+.service-card:hover,.portfolio-card:hover,.portfolio-detail-card:hover{border-color:#D9AAB9}
+.card-number,.portfolio-type,.credential-label{color:#9A4D68}
+.line-icon,.portfolio-symbol,.privacy-icon{border-color:#EBD0D9;color:#78374F}
+.credential-dark,.quote-band,.contact-panel{background:#78374F;border-color:#78374F}
+.credential-dark .credential-label,.contact-copy .eyebrow,.quote-inner .eyebrow{color:#F9DDE5}
+.credential-dark p,.contact-copy>p:not(.eyebrow),.contact-details p,.quote-credit{color:#FFF0F4}
+.contact-details a{color:#fff}
+.detail-illustration{border-color:#F1DDE4;background:#FFF0F4}
+.detail-illustration span{background:#78374F}
+.detail-illustration i{border-color:#E8BFCB;background:#F8E7ED}
+.illustration-two span{background:#F1D2DC;color:#78374F}
+.illustration-three span{background:#F8E7ED;color:#78374F}
+.site-footer{background:#FFF4F7}
+.footer-bottom{border-color:#F0DFE5}
+.filter-chip{border-color:#EEDDE3;color:#4B303B}
+.filter-chip:hover,.filter-chip.is-active{color:#fff}
+.progress-panel{background:#FFF0F4}
+.development-check input{accent-color:#9A4D68}
+.resource-search{border-color:#EEDDE3}
+.resource-search:focus-visible{outline-color:#9A4D68}
+.cv-page .cv-hero{background:linear-gradient(118deg,#78374F 0%,#984D68 58%,#C27D95 100%)}
+.cv-page .cv-hero h1 em{color:#F9DDE5}
+.cv-page .cv-label{color:#9A4D68}
+.cv-page .cv-panel-title,.cv-page .cv-sidebar-panel h2,.cv-page .cv-overview h2{color:#78374F}
+.cv-page .cv-panel-title:before,.cv-page .cv-timeline-item:before,.cv-page .cv-skill-list li:before{background:#C27D95}
+.cv-page .cv-year{background:#FCEBF0;color:#873D59}
+.cv-page .cv-registration{background:#FFF0F4;border-left-color:#C27D95}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
