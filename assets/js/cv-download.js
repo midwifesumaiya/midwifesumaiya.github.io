@@ -7,7 +7,7 @@ const txt = (node) => (node?.innerText || node?.textContent || "").replace(/\s+/
 const get = (selector, root = document) => txt(root.querySelector(selector));
 const panel = (id) => document.querySelector("#" + id)?.closest(".cv-panel");
 const side = (title) => [...document.querySelectorAll(".cv-sidebar-panel")].find(p => get("h2", p).toLowerCase() === title.toLowerCase());
-const heading = (title) => ({text:title.toUpperCase(),style:"sectionTitle",margin:[0,15,0,7]});
+const heading = (title) => ({text:title.toUpperCase(),style:"sectionTitle",fillColor:"#eaf2f2",margin:[0,15,0,8],padding:[8,8,6,8]});
 const entry = (node) => ({stack:[
 {columns:[{text:get("h3",node),style:"entryTitle",width:"*"},{text:get(".cv-year",node),style:"year",width:"auto",alignment:"right"}],columnGap:8},
 {text:get(".cv-institution",node),style:"institution",margin:[0,2,0,2]},
@@ -37,9 +37,9 @@ if(langs){content.push(heading("Language proficiency"),{table:{widths:["*","auto
 const career=side("Career direction"); if(career){content.push(heading("Career direction"),{text:get(".cv-objective",career),style:"bodyText"});}
 const ref=side("Academic reference"); if(ref){content.push(heading("Academic reference"),{text:get(".cv-reference-name",ref),style:"entryTitle"},{text:[...ref.querySelectorAll(".cv-reference-role")].map(txt).join(" · "),style:"institution",margin:[0,2,0,2]});}
 content.push({canvas:[{type:"line",x1:0,y1:0,x2:510,y2:0,lineWidth:.7,lineColor:"#d6e1e4"}],margin:[0,17,0,7]},{text:"Prepared for professional opportunities in midwifery. Registration number and referee contact details are not published publicly.",style:"smallNote"});
-return {pageSize:"A4",pageMargins:[42,40,42,45],content,defaultStyle:{font:"Roboto",fontSize:9,color:"#344956",lineHeight:1.2},styles:{
+return {pageSize:"A4",pageMargins:[42,38,42,45],content,defaultStyle:{font:"Roboto",fontSize:9,color:"#344956",lineHeight:1.25},styles:{
 name:{fontSize:18,bold:true,color:"#ffffff",characterSpacing:.3},role:{fontSize:9,bold:true,color:"#b9d7d7",characterSpacing:1.4},contact:{fontSize:7.5,color:"#e0ebee",lineHeight:1.3},
-sectionTitle:{fontSize:9,bold:true,color:"#183247",characterSpacing:1.1},entryTitle:{fontSize:9.5,bold:true,color:"#203747"},year:{fontSize:8.5,bold:true,color:"#347b7a"},institution:{fontSize:8.3,bold:true,color:"#65747d"},bodyText:{fontSize:8.4,color:"#52616b",lineHeight:1.25},smallNote:{fontSize:7.3,color:"#75838b",italics:true}},
+sectionTitle:{fontSize:8.5,bold:true,color:"#183247",characterSpacing:1.05},entryTitle:{fontSize:9.5,bold:true,color:"#203747"},year:{fontSize:8,bold:true,color:"#286b6b"},institution:{fontSize:8.3,bold:true,color:"#65747d"},bodyText:{fontSize:8.5,color:"#52616b",lineHeight:1.3},smallNote:{fontSize:7.3,color:"#75838b",italics:true}},
 footer:(page,pages)=>({columns:[{text:"SUMAIYA AKTER  •  REGISTERED MIDWIFE",fontSize:7,color:"#75838b"},{text:"PAGE "+page+" OF "+pages,alignment:"right",fontSize:7,color:"#75838b"}],margin:[42,14,42,0]})};
 }
 button.addEventListener("click",()=>{
