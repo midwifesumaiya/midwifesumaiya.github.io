@@ -21,6 +21,7 @@ jobs:
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
+          from urllib.parse import urlsplit
           import sys
 
           root = Path(".")
@@ -51,9 +52,10 @@ jobs:
               audits[page] = parser
           for page, parser in audits.items():
               for value in parser.links:
-                  path_part, _, fragment = value.partition("#")
+                  parsed = urlsplit(value)
+                  path_part, fragment = parsed.path, parsed.fragment
                   if path_part:
-                      target = (root / path_part.lstrip("/")) if value.startswith("/") else (page.parent / path_part)
+                      target = (root / path_part.lstrip("/")) if path_part.startswith("/") else (page.parent / path_part)
                       if not target.exists():
                           errors.append(f"{page}: missing local target {value}")
                       elif fragment and target.suffix == ".html":
