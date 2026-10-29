@@ -1,0 +1,69 @@
+name: Portfolio quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate local HTML links and page IDs
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import sys
+
+          root = Path(".")
+          pages = sorted(root.glob("*.html"))
+          errors = []
+
+          class Audit(HTMLParser):
+              def __init__(self, page):
+                  super().__init__(convert_charrefs=True)
+                  self.page = page
+                  self.ids = set()
+                  self.links = []
+              def handle_starttag(self, tag, attrs):
+                  a = dict(attrs)
+                  if a.get("id"):
+                      if a["id"] in self.ids:
+                          errors.append(f"{self.page}: duplicate id #{a['id']}")
+                      self.ids.add(a["id"])
+                  for key in ("href", "src"):
+                      value = a.get(key, "")
+                      if value and not value.startswith(("https://", "http://", "mailto:", "tel:", "data:", "javascript:")):
+                          self.links.append(value)
+
+          audits = {}
+          for page in pages:
+              parser = Audit(page)
+              parser.feed(page.read_text(encoding="utf-8"))
+              audits[page] = parser
+          for page, parser in audits.items():
+              for value in parser.links:
+                  path_part, _, fragment = value.partition("#")
+                  if path_part:
+                      target = (root / path_part.lstrip("/")) if value.startswith("/") else (page.parent / path_part)
+                      if not target.exists():
+                          errors.append(f"{page}: missing local target {value}")
+                      elif fragment and target.suffix == ".html":
+                          target_parser = audits.get(target)
+                          if target_parser and fragment not in target_parser.ids:
+                              errors.append(f"{page}: missing fragment {value}")
+                  elif fragment and fragment not in parser.ids:
+                      errors.append(f"{page}: missing local fragment #{fragment}")
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+          print(f"Checked {len(pages)} HTML pages; no broken local links or duplicate IDs found.")
+          PY
