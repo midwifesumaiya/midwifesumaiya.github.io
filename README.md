@@ -14,7 +14,9 @@ A responsive static professional portfolio for an entry-level Registered Midwife
 - Responsive layouts and mobile navigation
 - Search and category filters for portfolio items and learning topics
 - Browser-local professional development checklist
-- CV page with print/save-as-PDF layout
+- Dedicated CV webpage with a directly downloadable, text-selectable PDF (`cv.pdf`)
+- Separate print-friendly CV page for browser printing
+- Automated checks for CV download wiring and PDF integrity
 - Sitemap and robots.txt
 - GitHub Pages deployment workflow
 
@@ -22,7 +24,9 @@ A responsive static professional portfolio for an entry-level Registered Midwife
 - `index.html`, `about.html`, `portfolio.html`, `cv.html`: core portfolio pages
 - `learning.html`: topic categories and searchable learning library
 - `development.html`: professional development checklist
+- `cv.pdf`: standalone professional CV PDF served from the portfolio root
 - `assets/css/`: shared responsive styles and page components
+- `.github/workflows/quality-check.yml`: automated site and CV checks
 - `assets/js/`: shared site interactions
 - `.github/workflows/pages.yml`: deployment workflow
 
