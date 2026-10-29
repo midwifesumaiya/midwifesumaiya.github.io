@@ -196,3 +196,40 @@
   .cv-hero{background:#78374F!important}
   .cv-overview,.cv-panel,.cv-sidebar-panel{border-color:#E4CDD6}
 }
+
+
+/* Mobile layout repair: prevent CV columns, long text and controls from overflowing. */
+.cv-page,.cv-page *{box-sizing:border-box}
+.cv-page{max-width:100%;overflow-x:hidden}
+.cv-page main,.cv-page .container,.cv-shell,.cv-overview,.cv-layout,.cv-primary,.cv-sidebar,.cv-panel,.cv-sidebar-panel,.cv-overview-main,.cv-overview-side{min-width:0;max-width:100%}
+.cv-fact strong,.cv-fact a,.cv-item-head h3,.cv-institution,.cv-detail,.cv-registration span,.cv-objective,.cv-reference-role,.cv-language-row span,.cv-endnote span{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:600px){
+  .cv-page .container{width:auto;margin-left:16px;margin-right:16px}
+  .cv-page .cv-shell{width:auto;margin:0 12px;padding-bottom:36px}
+  .cv-page .cv-hero{padding:34px 0 38px}
+  .cv-page .cv-hero h1{font-size:clamp(32px,9vw,40px);line-height:1.12;overflow-wrap:normal}
+  .cv-page .cv-hero-copy{font-size:13px;line-height:1.7}
+  .cv-page .cv-hero-actions{display:flex;flex-direction:column;align-items:stretch;width:100%}
+  .cv-page .cv-action-light,.cv-page .cv-action-outline{width:100%;min-width:0;white-space:normal;text-align:center;line-height:1.5}
+  .cv-page .cv-overview{display:grid;grid-template-columns:minmax(0,1fr);width:100%}
+  .cv-page .cv-overview-main{padding:21px 18px}
+  .cv-page .cv-overview-side{padding:16px 18px}
+  .cv-page .cv-overview h2{font-size:22px;line-height:1.3}
+  .cv-page .cv-overview p{font-size:12px;line-height:1.75}
+  .cv-page .cv-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:14px}
+  .cv-page .cv-panel,.cv-page .cv-sidebar-panel{width:100%;padding:18px 16px}
+  .cv-page .cv-panel-title{font-size:10px;letter-spacing:.08em;line-height:1.55;overflow-wrap:anywhere}
+  .cv-page .cv-item-head{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+  .cv-page .cv-item-head h3{font-size:13px;line-height:1.5}
+  .cv-page .cv-year{align-self:flex-start}
+  .cv-page .cv-skill-list{grid-template-columns:minmax(0,1fr)}
+  .cv-page .cv-language-row{align-items:flex-start;flex-wrap:wrap}
+  .cv-page .cv-endnote{display:flex;flex-direction:column;gap:7px;line-height:1.6}
+  .cv-page .contact-strip{align-items:flex-start;flex-direction:column;gap:18px}
+}
+@media(max-width:360px){
+  .cv-page .cv-shell{margin-left:8px;margin-right:8px}
+  .cv-page .cv-panel,.cv-page .cv-sidebar-panel{padding:16px 13px}
+  .cv-page .cv-overview-main,.cv-page .cv-overview-side{padding-left:14px;padding-right:14px}
+  .cv-page .cv-hero h1{font-size:31px}
+}
