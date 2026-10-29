@@ -1,55 +1,33 @@
-# Sumaiya — Registered Midwife Portfolio
+# Sumaiya Akter — Registered Midwife Portfolio
 
-A responsive, accessible static portfolio for Sumaiya, a Registered Midwife in Bangladesh. Hosted on GitHub Pages with no build step or backend.
+A responsive static professional portfolio for an entry-level Registered Midwife in Bangladesh. Hosted on GitHub Pages using semantic HTML, CSS and vanilla JavaScript.
+
+## Public pages
+- Home: https://midwifesumaiya.github.io/
+- About: https://midwifesumaiya.github.io/about.html
+- Portfolio: https://midwifesumaiya.github.io/portfolio.html
+- Midwifery Knowledge Centre: https://midwifesumaiya.github.io/learning.html
+- Professional Development: https://midwifesumaiya.github.io/development.html
+- CV: https://midwifesumaiya.github.io/cv.html
+
+## Features
+- Responsive layouts and mobile navigation
+- Search and category filters for portfolio items and learning topics
+- Browser-local professional development checklist
+- CV page with print/save-as-PDF layout
+- Sitemap and robots.txt
+- GitHub Pages deployment workflow
 
 ## Project structure
+- `index.html`, `about.html`, `portfolio.html`, `cv.html`: core portfolio pages
+- `learning.html`: topic categories and searchable learning library
+- `development.html`: professional development checklist
+- `assets/css/`: shared responsive styles and page components
+- `assets/js/`: shared site interactions
+- `.github/workflows/pages.yml`: deployment workflow
 
-```text
-.
-├── index.html                 # Home page and professional introduction
-├── about.html                 # Professional background, values and education
-├── portfolio.html             # Academic work and professional development
-├── cv.html                    # Print-ready CV page
-├── assets/
-│   ├── css/
-│   │   ├── base.css            # Design tokens, reset, typography and global header
-│   │   ├── hero.css            # Hero, navigation actions and button styles
-│   │   ├── sections.css        # Shared sections, cards, contact panel and CV
-│   │   └── responsive.css      # Breakpoints, reduced motion and print rules
-│   ├── js/
-│   │   └── main.js             # Mobile navigation, current year and CV printing
-│   └── images/
-│       └── favicon.svg         # Baby-pink brand favicon
-├── robots.txt                  # Crawler instructions
-├── sitemap.xml                 # Public page URLs for search engines
-├── .editorconfig               # Consistent editor formatting
-└── googlef12f9ebc2646e25e.html # Search Console verification file
-```
+## Editing and deployment
+Edit the relevant HTML page and shared styles in `assets/css/`. Keep navigation and page metadata consistent. The site is static and does not require a database or server. GitHub Pages deploys changes from the configured branch; check the Actions tab if deployment fails.
 
-## Design and implementation
-
-- Baby-pink brand colour: `#F4C2C2`, with shared CSS design tokens.
-- Semantic HTML, keyboard focus states, responsive navigation and reduced-motion support.
-- CSS is split by responsibility; keep stylesheet links in the same order in every page.
-- JavaScript is dependency-free and progressively enhances the static pages.
-- Root-level HTML files keep existing public URLs stable for SEO and existing links.
-- Canonical URLs, metadata, sitemap and robots directives support search discovery.
-
-## Pages
-
-- **Home:** `/`
-- **About:** `/about.html`
-- **Portfolio:** `/portfolio.html`
-- **CV:** `/cv.html` — use **Print or save as PDF** in the browser.
-
-## Deployment
-
-Push changes to the configured GitHub Pages publishing branch. No package manager, compilation or build command is required.
-
-## Content maintenance and privacy
-
-Before using the CV for applications, verify all education dates and details. Add only genuine experience, training and certificates. Publish portfolio materials only when ready to share. Never publish patient-identifying information or confidential clinical records.
-
-## Search engine maintenance
-
-The sitemap at `/sitemap.xml` lists all four public pages. Submit or re-submit it in Google Search Console after publishing; sitemap submission does not guarantee indexing.
+## Accuracy, privacy and clinical responsibility
+Use only accurate qualifications, completed training, verified certificates and genuine work. The public site intentionally avoids publishing street-level address, salary expectations, referee phone number or registration number. Never publish patient-identifiable information or confidential clinical records. Educational content must be reviewed against current authoritative guidance and local protocols before publication and should not be presented as personalized medical advice.
