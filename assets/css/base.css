@@ -1,12 +1,12 @@
 @charset "UTF-8";
-:root{color-scheme:light;--ink:#3D2932;--muted:#79666D;--deep:#8B3F5A;--deep-hover:#713047;--sage:#F4C2C2;--sage-strong:#E8AAB8;--paper:#FFFAFB;--white:#fff;--line:#EEDDE3;--clay:#A24B68;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans","Segoe UI",sans-serif;--content:1160px;--shadow:0 20px 55px rgb(87 45 62 / 9%)}
+:root{color-scheme:light;--ink:#4B303B;--muted:#806873;--deep:#78374F;--deep-hover:#612A40;--sage:#F4C2C2;--sage-strong:#E8AAB8;--paper:#FFFAFB;--white:#fff;--line:#EEDDE3;--clay:#9A4D68;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans","Segoe UI",sans-serif;--content:1160px;--shadow:0 20px 55px rgb(87 45 62 / 9%)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
 img,svg{display:block;max-width:100%}a{color:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:3px solid var(--clay);outline-offset:4px}
 .container{width:min(var(--content),calc(100% - 52px));margin-inline:auto}
 .skip-link{position:absolute;z-index:100;top:10px;left:10px;padding:10px 14px;transform:translateY(-150%);border-radius:4px;background:var(--ink);color:white}.skip-link:focus{transform:translateY(0)}
-.site-header{position:sticky;z-index:50;top:0;border-bottom:1px solid rgb(220 229 220 / 85%);background:rgb(255 250 251 / 94%);backdrop-filter:blur(14px)}
+.site-header{position:sticky;z-index:50;top:0;border-bottom:1px solid rgb(238 221 227 / 85%);background:rgb(255 250 251 / 94%);backdrop-filter:blur(14px)}
 .header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:inline-flex;align-items:center;gap:11px;color:var(--ink);font-size:15px;font-weight:700;line-height:1.25;text-decoration:none}
 .brand-mark{width:39px;height:39px;display:grid;place-items:center;flex:none;border:1px solid var(--sage-strong);border-radius:50%;background:var(--sage);color:var(--deep);font:500 20px var(--serif)}
@@ -17,7 +17,7 @@ img,svg{display:block;max-width:100%}a{color:inherit}button,a{-webkit-tap-highli
 .primary-nav .nav-contact{padding:10px 15px;border:1px solid #E6C3CF;border-radius:4px;color:var(--deep)}
 .menu-toggle{display:none}
 
-/* Design tokens: shared brand colours, typography and reusable surfaces. */
-:root{--focus:#A24B68;--surface-soft:#FFF0F4;--surface-pink:#FCEBF0}
+/* Baby Pink brand tokens: shared colours, typography and reusable surfaces. */
+:root{--focus:#873D59;--surface-soft:#FFF0F4;--surface-pink:#FCEBF0}
 a:focus-visible,button:focus-visible{outline-color:var(--focus)}
 ::selection{background:#F3CCD8;color:#3D2932}
