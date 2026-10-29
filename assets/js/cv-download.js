@@ -3,7 +3,7 @@
 const button = document.querySelector("[data-download-pdf]");
 const status = document.querySelector("#cv-download-status");
 if (!button) return;
-const txt = (node) => (node?.innerText || node?.textContent || "").replace(/\\s+/g, " ").trim();
+const txt = (node) => (node?.innerText || node?.textContent || "").replace(/\s+/g, " ").trim();
 const get = (selector, root = document) => txt(root.querySelector(selector));
 const panel = (id) => document.querySelector("#" + id)?.closest(".cv-panel");
 const side = (title) => [...document.querySelectorAll(".cv-sidebar-panel")].find(p => get("h2", p).toLowerCase() === title.toLowerCase());
@@ -20,7 +20,7 @@ const fact = name => facts.find(x=>x[0].toLowerCase()===name.toLowerCase())?.[1]
 const skills = [...(panel("skills-heading")?.querySelectorAll("li")||[])].map(txt);
 const content = [
 {table:{widths:["*","auto"],body:[[{stack:[
-{text:get(".cv-hero h1").replace(/\\s+/g," "),style:"name"},
+{text:get(".cv-hero h1").replace(/\s+/g," "),style:"name"},
 {text:"REGISTERED MIDWIFE",style:"role",margin:[0,5,0,7]},
 {text:[fact("Email"),fact("Preferred location"),fact("Professional status")].filter(Boolean).join("   •   "),style:"contact"}
 ],fillColor:"#183247",margin:[17,16,12,16]},{text:"S",fontSize:38,bold:true,color:"#b9d7d7",alignment:"center",fillColor:"#183247",margin:[8,16,16,16]}]]},layout:{hLineWidth:()=>0,vLineWidth:()=>0,paddingLeft:()=>0,paddingRight:()=>0,paddingTop:()=>0,paddingBottom:()=>0},margin:[0,0,0,12]},
@@ -40,7 +40,7 @@ content.push({canvas:[{type:"line",x1:0,y1:0,x2:510,y2:0,lineWidth:.7,lineColor:
 return {pageSize:"A4",pageMargins:[42,40,42,45],content,defaultStyle:{font:"Roboto",fontSize:9,color:"#344956",lineHeight:1.2},styles:{
 name:{fontSize:18,bold:true,color:"#ffffff",characterSpacing:.3},role:{fontSize:9,bold:true,color:"#b9d7d7",characterSpacing:1.4},contact:{fontSize:7.5,color:"#e0ebee",lineHeight:1.3},
 sectionTitle:{fontSize:9,bold:true,color:"#183247",characterSpacing:1.1},entryTitle:{fontSize:9.5,bold:true,color:"#203747"},year:{fontSize:8.5,bold:true,color:"#347b7a"},institution:{fontSize:8.3,bold:true,color:"#65747d"},bodyText:{fontSize:8.4,color:"#52616b",lineHeight:1.25},smallNote:{fontSize:7.3,color:"#75838b",italics:true}},
-footer:(page,pages)=>({columns:[{text:"SUMAIYA AKTER  •  REGISTERED MIDWIFE",fontSize:7,color:"#75838b"},{text:"PAGE "+page+" OF "+pages,alignment:"right",fontSize:7,color:"#75838b"}],margin:[42,14,42,0]});
+footer:(page,pages)=>({columns:[{text:"SUMAIYA AKTER  •  REGISTERED MIDWIFE",fontSize:7,color:"#75838b"},{text:"PAGE "+page+" OF "+pages,alignment:"right",fontSize:7,color:"#75838b"}],margin:[42,14,42,0]})};
 }
 button.addEventListener("click",()=>{
 if(!window.pdfMake||!window.pdfMake.vfs){if(status)status.textContent="PDF library did not load. Check your internet connection, reload this page, and try again.";return;}
