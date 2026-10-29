@@ -1,6 +1,6 @@
 # Sumaiya Akter — Registered Midwife Portfolio
 
-A responsive static professional portfolio for an entry-level Registered Midwife in Bangladesh. Hosted on GitHub Pages using semantic HTML, CSS and vanilla JavaScript.
+A responsive static professional portfolio for an entry-level Registered Midwife in Bangladesh. Hosted on GitHub Pages using semantic HTML, CSS and vanilla JavaScript, with a consistent Baby Pink, dusty rose and ivory visual identity.
 
 ## Public pages
 - Home: https://midwifesumaiya.github.io/
@@ -11,6 +11,7 @@ A responsive static professional portfolio for an entry-level Registered Midwife
 - CV: https://midwifesumaiya.github.io/cv.html
 
 ## Features
+- Consistent Baby Pink brand system across the main site and CV, with rose accents and accessible dark text
 - Responsive layouts and mobile navigation
 - Search and category filters for portfolio items and learning topics
 - Browser-local professional development checklist
