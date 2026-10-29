@@ -7,7 +7,7 @@ const txt = (node) => (node?.innerText || node?.textContent || "").replace(/\s+/
 const get = (selector, root = document) => txt(root.querySelector(selector));
 const panel = (id) => document.querySelector("#" + id)?.closest(".cv-panel");
 const side = (title) => [...document.querySelectorAll(".cv-sidebar-panel")].find(p => get("h2", p).toLowerCase() === title.toLowerCase());
-const heading = (title) => ({text:title.toUpperCase(),style:"sectionTitle",fillColor:"#eaf2f2",margin:[0,15,0,8],padding:[8,8,6,8]});
+const heading = (title) => ({table:{widths:["*"],body:[[{text:title.toUpperCase(),style:"sectionTitle",fillColor:"#eaf2f2",border:[false,false,false,false]}]]},layout:{hLineWidth:()=>0,vLineWidth:()=>0,paddingLeft:()=>8,paddingRight:()=>8,paddingTop:()=>6,paddingBottom:()=>6},margin:[0,14,0,7],unbreakable:true});
 const entry = (node) => ({stack:[
 {columns:[{text:get("h3",node),style:"entryTitle",width:"*"},{text:get(".cv-year",node),style:"year",width:"auto",alignment:"right"}],columnGap:8},
 {text:get(".cv-institution",node),style:"institution",margin:[0,2,0,2]},
